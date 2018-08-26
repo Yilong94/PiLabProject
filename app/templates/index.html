@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pi Lab Project</title>
+
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <!--Javascript to get current time and date-->
+    <script type="text/javascript">
+        window.onload = function(){
+            var now = new Date();
+            var dayslist = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            var day_date = dayslist[now.getDay()] + ', ' + now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear(); 
+            console.log(day_date)
+            document.getElementById('datetime').innerHTML = day_date
+        }
+    </script>
+
+    <!--Javascript libraries for Flask SocketIO-->
+    <!-- Using an older version of jquery instead...
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+    -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+
+    <!-- Link for custom CSS -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+    <!-- Script for loading all util javascript functions (note: need to load jquery first) -->
+    <script type="text/javascript" src="{{ url_for('static', filename='utils.js') }}"></script>
+
+</head>
+
+
+
+<body>
+    <div class='crop'>
+        <img src='/static/sai-kiran-anagani-61187.jpg'>
+        <h2><span class='outerspan'>PROJECT CYCLOPS:<span class='spacer'></span><br/><span class='spacer'></span><span class='innerspan'>A PiLab Improvement Project</span></span></h2>
+    </div>
+    <h1 class=myheaders><span>About This Project</span></h1>
+    <p style='text-align:center;max-width:700px; margin:auto'>Project Cyclops seeks to track and analyze the usage of the PiLab in order to provide a reliable assessment of space usage. It utilizes computer vision techniques to monitor movement in and out of the room and pushes data into a local database for data storage. A web framework is used to extract and publish the data on a user-friendly and interactive web application using graphs and charts.
+    </br>
+    </br>
+
+    </p>
+    <h1 class=myheaders><span>No. of users in Pi Lab currently:</span></h1>
+    <h1 id='count' class = 'normalwords' style='font-size:5em'></h1>
+    <h3 id='datetime' class = 'normalwords'></h3>
+    <h1 class='myheaders'><span>Live graph for the past 4 hours</span></h1>
+    <div id='id_livegraph'></div>
+    <h1 class='myheaders'><span>Historical record</span></h1>
+    <form id="postDates" method="POST" action='#'>
+        <p>Choose dates to visualize</p>
+        <label for='from'>From: </label>
+        <input name='from' type='text' id='startdatepicker'/>
+        <label for='to'>To: </label>
+        <input name='to' type='text' id='enddatepicker'/>
+        <p>Choose time period to visualize</p>
+        <label for='fromTime'>From: </label>
+        <input type="text" name="fromTime" class="timepicker" id='starttimepicker'/>
+        <label to='toTime'>To: </label>
+        <input type="text" name="toTime" class="timepicker" id='endtimepicker'/>
+        <input id='submitbutton' type='submit' value='Get Graph'>
+
+    </form>
+    <p class=chartTitle>Averaged data across specified period</p>
+    <div id='id_linechart'></div>
+    <p class=chartTitle>Distribution of Room Occupancy across specified period</p>
+    <div id='id_piechart'></div>
+    <p class=chartTitle>Table of Historical Data</p>
+    <div id='id_fulltable'></div>
+
+
+
+    <!-- Javascript libraries and stylesheets for Date Picker -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Javascript for Date Picker-->
+    <script>
+    $( function() {
+        $( "#startdatepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        $( "#enddatepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    } );
+    </script>
+
+    <!-- Javascript libraries for Wicked Picker -->
+    <script type="text/javascript" src="/static/wickedpicker/dist/wickedpicker.min.js"></script>
+    <link rel="stylesheet" href="/static/wickedpicker/dist/wickedpicker.min.css">
+    
+    <!--Javascript for Wicked Picker -->
+    <script>
+        var startTimepicker = $('#starttimepicker').wickedpicker({now:'00:00'});
+        var endTimepicker = $('#endtimepicker').wickedpicker({now:'23:59'});
+    </script>
+
+</body>
+
+</html>
