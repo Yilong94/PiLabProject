@@ -2,15 +2,25 @@
 
 Project Cyclops seeks to track and analyze the usage of the PiLab in order to provide a reliable assessment of space usage. It utilizes computer vision techniques to monitor movement in and out of the room and pushes data into a local database for data storage. A web framework is used to extract and publish the data on a user-friendly and interactive web application using graphs and charts. 
 
-** Display number of people currently in the pi lab **
+**Display number of people currently in the pi lab**
 
-** Display number of people over the past 4 hours with a line chart **
+![1](https://github.com/Yilong94/PiLabProject/blob/master/screenshots/CurrentCount.png)
 
-** Input from user **
+**Display number of people over the past 4 hours with a line chart**
 
-** Display number of people on average with a line chart **
+![2](https://github.com/Yilong94/PiLabProject/blob/master/screenshots/LiveLineChart.png)
 
-** Display the distribution of crowdedness with a pie chart **
+**Input from user**
+
+![3](https://github.com/Yilong94/PiLabProject/blob/master/screenshots/UserInput.png)
+
+**Display number of people on average with a line chart**
+
+![4](https://github.com/Yilong94/PiLabProject/blob/master/screenshots/HistoricalLineChart.png)
+
+**Display the distribution of crowdedness with a pie chart**
+
+![5](https://github.com/Yilong94/PiLabProject/blob/master/screenshots/HistoricalPieChart.png)
 
 ## Getting Started
 
