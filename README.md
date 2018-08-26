@@ -44,6 +44,7 @@ pip install requirements.py
 ```
 2. On command line/terminal, cd to the top-level directory of the project (i.e. directory containing 'app', 'run.py')
 3. Set username and password to access MySQL database
+
 MacOS:
 ```
 export USERNAME=xxx
