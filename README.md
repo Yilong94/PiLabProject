@@ -31,7 +31,6 @@ These instructions will get you a copy of the project up and running on your loc
 * Python 2.7
 * MacOs/Windows operating system
 * Web browser (chrome, firefox)
-(See requirements.py)
 
 ### Installing
 
