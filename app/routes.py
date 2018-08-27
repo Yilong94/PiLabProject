@@ -5,8 +5,6 @@ import time
 from flask import render_template
 from flask_socketio import emit
 
-from database import getLogCSV, pushLogCSV
-
 @app.route("/")
 def index():
     return render_template('index.html', async_mode=socketio.async_mode)
