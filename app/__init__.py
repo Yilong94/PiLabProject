@@ -2,7 +2,8 @@ from flask import Flask
 from flask_socketio import SocketIO
 from threading import Lock 
 import os
-from DatabaseConnector import DatabaseConnector
+# note: when importing, remember to set the directory as a Python package (not a default in Python 2.7)
+from app.database.DatabaseConnector import DatabaseConnector
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
