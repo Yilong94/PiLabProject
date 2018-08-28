@@ -1,4 +1,4 @@
 *.pyc
 resources
-app/database
+app/database_junk
 app/Log.csv
